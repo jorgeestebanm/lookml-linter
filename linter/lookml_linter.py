@@ -67,5 +67,12 @@ class LookMlLinter:
             if not success:
                 if not self.has_errors and runner.severity == 'error':
                     self.has_errors = True
-                error_msg = f'{runner.severity}: {object_type} {object["name"]} - {rule["name"]}'
+                formatted_severity = self._format_severity(runner.severity)
+                error_msg = f'{formatted_severity}: {object_type} {object["name"]} - {rule["name"]}'
                 self._errors[-1]['messages'].append(error_msg)
+
+    def _format_severity(self, severity: Severity) -> str:
+        if severity == Severity.ERROR.value:
+            return '🚨 **Error**'
+        if severity == Severity.WARNING.value:
+            return '**Warning**'
