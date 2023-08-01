@@ -29,6 +29,8 @@ The linter parses the LookML files in the project and checks if there are any ex
     - `tags: ['owner:your_name'] `
 - FieldRequiresDescription
   - This rule checks that all non-hidden fields (measures, dimensions, and dimension_groups) have descriptions added.
+- FieldDescriptionRequiresMinimumLength
+  - This rule checks that all non-hidden fields (measures, dimensions, and dimension_groups) descriptions are at least 20 characters long if they are defined. This rule is ignored if the description is not defined, to avoid redundancy with the `FieldRequiresDescription` rule.
 - FieldSqlHtmlRequiresUserAttributeWhenSearchTermsFound
   - This rule checks fields with the search term in the name use a specific user_attribute to limit the field access.
 - ViewWithDimensionsAndMeasuresHasOnePrimaryKey
