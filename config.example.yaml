@@ -14,6 +14,8 @@
   severity: warning
 - rule: explore_requires_description
   severity: warning
+- rule: explore_description_requires_minimum_length
+  severity: warning
 - rule: explore_joins_contain_many_to_many_relationship
   severity: warning
 - rule: explore_requires_label

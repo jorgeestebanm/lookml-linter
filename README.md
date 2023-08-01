@@ -22,6 +22,8 @@ The linter parses the LookML files in the project and checks if there are any ex
   - This rule checks that a relationship parameter is explicitly used on joins in explore objects.
 - ExploreRequiresDescription
   - This rule checks if all explore objects have a description parameter defined.
+- ExploreDescriptionRequiresMinimumLength
+  - This rule checks that all explore descriptions are at least 20 characters long if they are defined. This rule is ignored if the description is not defined, to avoid redundancy with the `ExploreRequiresDescription` rule.
 - ExploreTagRequiresOwner
   - This rule checks that each explore has an owner defined in its [tag parameter](https://cloud.google.com/looker/docs/reference/param-explore-tags)
     - `tags: ['owner:your_name'] `
