@@ -41,12 +41,13 @@ class LookMlLinter:
                 for m in measures:
                     self.__lint_object(m, 'measure')
 
-    def get_errors(self) -> None:
+    def get_errors(self) -> str:
         output = ''
         for error in self._errors:
             output += error['filename']
             if len(error['messages']) == 0:
                 output += f'\n    No linting warnings/errors found.'
+            error['messages'].sort(reverse=True)
             for message in error['messages']:
                 output += f'\n    {message}'
             output += '\n'
