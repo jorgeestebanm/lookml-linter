@@ -26,7 +26,7 @@ The linter parses the LookML files in the project and checks if there are any ex
   - This rule checks that all explore descriptions are at least 20 characters long if they are defined. This rule is ignored if the description is not defined, to avoid redundancy with the `ExploreRequiresDescription` rule.
 - ExploreTagRequiresOwner
   - This rule checks that each explore has an owner defined in its [tag parameter](https://cloud.google.com/looker/docs/reference/param-explore-tags)
-    - `tags: ['owner:your_name'] `
+    - `tags: ['owner:your_name']`
 - FieldRequiresDescription
   - This rule checks that all non-hidden fields (measures, dimensions, and dimension_groups) have descriptions added.
 - FieldDescriptionRequiresMinimumLength
@@ -62,7 +62,7 @@ Finally update the config file to have the rule run. If a rule is not explicitly
 
 Required to run the linter is a configuration file in YAML format. Included in the repository is a config.example.yaml file. Copy this file to config.yaml (or another filename of your choice) and customize appropriately. Every rule in `/linter/rules` must be specified here, with each having at least a `severity` attribute, as such:
 
-```
+```yaml
 - rule: field_requires_description
 
   severity: warning
@@ -81,7 +81,7 @@ Severity attributes can be one of the following:
 
 Rules can also accept custom parameters. To specify a series of parameters that should be applied to a rule, add a `param_sets` array to the configuration file, e.g.:
 
-```
+```yaml
 - rule: field_sql_html_requires_user_attribute_when_search_terms_found_exact
   severity: error
   param_sets:
@@ -98,7 +98,7 @@ Rules can also accept custom parameters. To specify a series of parameters that 
 
 In this example, the `field_sql_html_requires_user_attribute_when_search_terms_found_exact` rule will be run once per param set, and the rule’s run method will be able to access `user_attribute` and `search_terms`:
 
-```
+```python
 user_attribute = self.params['user_attribute']
 search_terms = self.params['search_terms']
 ```
