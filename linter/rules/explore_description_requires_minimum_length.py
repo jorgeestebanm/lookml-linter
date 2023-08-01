@@ -7,8 +7,9 @@ class ExploreDescriptionRequiresMinimumLength(Rule):
         return ("explore",)
 
     def run(self, explore: Any) -> bool:
+        length = self.params["min_length"]
         if not "description" in explore:
             return True
-        if len(explore["description"]) < 20:
+        if len(explore["description"]) < length:
             return False
         return True

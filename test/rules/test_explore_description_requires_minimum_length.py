@@ -7,7 +7,8 @@ from linter.rules.explore_description_requires_minimum_length import (
 def test_run_method_successfully_validates_explore_with_minimum_length_description() -> (
     None
 ):
-    rule = ExploreDescriptionRequiresMinimumLength(Severity.ERROR.value)
+    params = {"min_length": 20}
+    rule = ExploreDescriptionRequiresMinimumLength(Severity.ERROR.value, params)
 
     explore = {
         "sql_always_where": "1=1",
@@ -19,7 +20,8 @@ def test_run_method_successfully_validates_explore_with_minimum_length_descripti
 
 
 def test_run_method_successfully_validates_explore_without_description() -> None:
-    rule = ExploreDescriptionRequiresMinimumLength(Severity.ERROR.value)
+    params = {"min_length": 20}
+    rule = ExploreDescriptionRequiresMinimumLength(Severity.ERROR.value, params)
 
     explore = {"sql_always_where": "1=1", "name": "sku"}
     rule_result = rule.run(explore)
@@ -27,7 +29,8 @@ def test_run_method_successfully_validates_explore_without_description() -> None
 
 
 def test_run_method_fails_with_explore_with_short_description() -> None:
-    rule = ExploreDescriptionRequiresMinimumLength(Severity.ERROR.value)
+    params = {"min_length": 20}
+    rule = ExploreDescriptionRequiresMinimumLength(Severity.ERROR.value, params)
 
     explore = {"sql_always_where": "1=1", "name": "sku", "description": "testing"}
     rule_result = rule.run(explore)

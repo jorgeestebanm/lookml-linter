@@ -79,9 +79,13 @@ Severity attributes can be one of the following:
 - warning - warnings will be reported but will not stop the…
 - ignore - these rules will not be applied during linting
 
-Rules can also accept custom parameters. To specify a series of parameters that should be applied to a rule, add a `param_sets` array to the configuration file, e.g.:
+Rules can also accept custom parameters. To specify a series of parameters that should be applied to a rule, add a `param_sets` array to the configuration file, _e.g._:
 
 ```yaml
+- rule: explore_description_requires_minimum_length
+  severity: warning
+  param_sets:
+    - min_length: 20
 - rule: field_sql_html_requires_user_attribute_when_search_terms_found_exact
   severity: error
   param_sets:

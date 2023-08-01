@@ -7,7 +7,8 @@ class FieldDescriptionRequiresMinimumLength(Rule):
         return ("dimension", "measure")
 
     def run(self, field: Any) -> bool:
+        length = self.params["min_length"]
         if field.get("hidden") != "yes" and "description" in field:
-            if len(field["description"]) < 20:
+            if len(field["description"]) < length:
                 return False
         return True
