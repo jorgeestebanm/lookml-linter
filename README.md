@@ -23,14 +23,18 @@ The linter parses the LookML files in the project and checks if there are any ex
 - ExploreRequiresDescription
   - This rule checks if all explore objects have a description parameter defined.
 - ExploreDescriptionRequiresMinimumLength
-  - This rule checks that all explore descriptions are at least 20 characters long if they are defined. This rule is ignored if the description is not defined, to avoid redundancy with the `ExploreRequiresDescription` rule.
+  - This rule checks that all explore descriptions are at least `min_length` characters long if they are defined. This rule is ignored if the description is not defined, to avoid redundancy with the `ExploreRequiresDescription` rule.
+  - Defined `param_sets`:
+    - `min_length`
 - ExploreTagRequiresOwner
   - This rule checks that each explore has an owner defined in its [tag parameter](https://cloud.google.com/looker/docs/reference/param-explore-tags)
     - `tags: ['owner:your_name']`
 - FieldRequiresDescription
   - This rule checks that all non-hidden fields (measures, dimensions, and dimension_groups) have descriptions added.
 - FieldDescriptionRequiresMinimumLength
-  - This rule checks that all non-hidden fields (measures, dimensions, and dimension_groups) descriptions are at least 20 characters long if they are defined. This rule is ignored if the description is not defined, to avoid redundancy with the `FieldRequiresDescription` rule.
+  - This rule checks that all non-hidden fields (measures, dimensions, and dimension_groups) descriptions are at least `min_length` characters long if they are defined. This rule is ignored if the description is not defined, to avoid redundancy with the `FieldRequiresDescription` rule.
+  - Defined `param_sets`:
+    - `min_length`
 - FieldSqlHtmlRequiresUserAttributeWhenSearchTermsFound
   - This rule checks fields with the search term in the name use a specific user_attribute to limit the field access.
 - ViewRequiresDescription
