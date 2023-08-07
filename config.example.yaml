@@ -34,6 +34,8 @@
   severity: warning
 - rule: explore_requires_fields
   severity: warning
+- rule: view_requires_description
+  severity: warning
 - rule: view_requires_label
   severity: warning
 - rule: dimension_group_name_should_not_end_with_date_or_time
